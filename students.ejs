@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students List</title>
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" 
+        rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation for body */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #007bff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+            transform: scale(1.1);
+        }
+
+        .table-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            animation: slideIn 1s ease-in-out forwards; /* Slide-in animation */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            font-size: 2rem;
+            letter-spacing: 1px;
+            animation: fadeInText 1.5s ease-in-out;
+        }
+
+        @keyframes fadeInText {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            animation: fadeIn 2s ease-in-out; /* Table fade-in animation */
+        }
+
+        .table th {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+        }
+
+        .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table tbody tr {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .table tbody tr:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.01);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .table-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="http://localhost:3000">Back To Home</a>
+    </nav>
+    <div class="container">
+        <div class="table-container">
+            <h1>Students List</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Roll Number</th>
+                        <th>Name</th>
+                        <th>Student ID</th>
+                        <th>Mobile Number</th>
+                        <th>Email ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
+                    <tr>
+                        <td><%= student.roll_number %></td>
+                        <td><%= student.name %></td>
+                        <td><%= student.student_id %></td>
+                        <td><%= student.mobile_number %></td>
+                        <td><%= student.email_id %></td>
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
